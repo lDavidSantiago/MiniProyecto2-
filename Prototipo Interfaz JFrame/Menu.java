@@ -127,7 +127,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel2.add(etiqueta7);//Se agrega la etiqueta
 
         JLabel etiqueta8 = new JLabel("AGREGA NUEVOS DULCES");
-        etiqueta8.setBounds(50, 90, 150, 30);
+        etiqueta8.setBounds(50, 90, 200, 30);
         panel2.add(etiqueta8);
         //////////////////
         JLabel etiqueta9 = new JLabel("INGRESA NUEVOS DULCES");//ETIQUETA
