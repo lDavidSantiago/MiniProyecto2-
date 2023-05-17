@@ -290,20 +290,9 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                     }
                 }
             };
-
-        
-
-    
-            ActionListener b = new ActionListener() {
-                public void actionPerformed(ActionEvent ae){
-                    panel2.setVisible(false);
-                    panel1.setVisible(true);
-                }
-            };
-            boton3.addActionListener(b);
         botonRemove.addActionListener(aRemove);
 
-        panel4.add(boton3);//Implementacion del boton
+        botonVolver(250, 150, 100, 40, panel4);
         panel4.add(labelRemove);
         panel4.add(cTRemove);
         panel4.add(botonRemove);
@@ -347,7 +336,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         boton.setText("Volver");//Se le proporciona un texto, sino como se muestra al crearlo
         boton.setBounds(x,y,width,height);//Ubicacion del boton
         panel.add(boton);//Implementacion del boton
-        boton.setBackground(Color.BLUE);
+        boton.setBackground(Color.magenta);
 
         ActionListener d = new ActionListener() {
             public void actionPerformed(ActionEvent ae){
