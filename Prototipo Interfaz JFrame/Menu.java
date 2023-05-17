@@ -130,7 +130,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         //PANEL1
         ////////////////////////////////////////////////////////////////////////
         JTextField cajaTexto1 = new JTextField();
-        cajaTexto1.setText("Ingrese una opción (numero)");
+        TextPrompt holder = new TextPrompt("Ingrese una opcion (numero)",cajaTexto1);
         cajaTexto1.setBounds(165,210,170,30);
         panel1.add(cajaTexto1);
         // ----ACTION LISTENER DEL BOTON
@@ -157,7 +157,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         ///////////////////////
 
         JTextField cajaTexto2 = new JTextField();
-        cajaTexto2.setText("Nombre del dulce");
+        TextPrompt holder2 = new TextPrompt("Ingrese una opcion (numero)",cajaTexto2);
         cajaTexto2.setBounds(165,130,170,30);
         panel2.add(cajaTexto2);
 
@@ -194,6 +194,49 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
             }
         };
         boton3.addActionListener(b);
+
+        /*
+         * Panel 3 
+         */
+        JTextField cajaTexto3 = new JTextField();
+        cajaTexto3.setText("Buscar Dulce");
+        cajaTexto3.setBounds(165,130,170,30);
+        panel3.add(cajaTexto3);
+
+        JButton boton4 = new JButton(/* "Aceptar" */);//creación del boton
+        boton4.setText("Actualizar");//Se le proporciona un texto, sino como se muestra al crearlo
+        boton4.setBounds(150,200,100,40);//Ubicacion del boton
+        panel3.add(boton4);//Implementacion del boton
+        boton4.setBackground(Color.magenta);
+
+        ActionListener c = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                String temporal_name = cajaTexto3.getText();
+                Dulce n = new Dulce(temporal_name);
+                arrayDulces.add(n);
+                for (Dulce Dulce: arrayDulces) {
+                    System.out.println("Nombre: "+ Dulce.getNombre());;
+                }}
+        };
+        boton4.addActionListener(c);
+
+
+        //////////////////////////////////////////////
+
+        JButton boton5 = new JButton(/* "Aceptar" */);//creación del boton
+        boton5.setText("Volver");//Se le proporciona un texto, sino como se muestra al crearlo
+        boton5.setBounds(250,200,100,40);//Ubicacion del boton
+        panel3.add(boton5);//Implementacion del boton
+        boton5.setBackground(Color.magenta);
+
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                panel3.setVisible(false);
+                panel1.setVisible(true);
+            }
+        };
+        boton5.addActionListener(d);
+       
 
     };
     
