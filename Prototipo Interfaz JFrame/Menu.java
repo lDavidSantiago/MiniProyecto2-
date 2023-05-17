@@ -17,6 +17,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
     public JPanel panel1 = new JPanel();//Creacion del panel
     public JPanel panel2 = new JPanel();
     public JPanel panel3 = new JPanel();
+    public JPanel panel4 = new JPanel();
     ArrayList<Dulce> arrayDulces = new ArrayList<>();
     
 
@@ -55,6 +56,12 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel3.setVisible(false);
         panel3.setLayout(null);
         panel3.setBackground(Color.PINK);
+        ////////////////////////////////////////////////////////////////////////
+        //PANEL4
+        ////////////////////////////////////////////////////////////////////////
+        panel4.setVisible(false);
+        panel4.setLayout(null);
+        panel4.setBackground(Color.PINK);
 
     }
 
@@ -133,8 +140,8 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         //PANEL1
         ////////////////////////////////////////////////////////////////////////
         JTextField cajaTexto1 = new JTextField();
-        cajaTexto1.setText("");
-        cajaTexto1.setBounds(165,250,170,30);
+        cajaTexto1.setText("Ingrese una opción (numero)");
+        cajaTexto1.setBounds(165,210,170,30);
         panel1.add(cajaTexto1);
         // ----ACTION LISTENER DEL BOTON
         
@@ -160,7 +167,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         ///////////////////////
 
         JTextField cajaTexto2 = new JTextField();
-        cajaTexto2.setText("Nombre del dulce");
+        TextPrompt holder2 = new TextPrompt("Ingrese una opcion (numero)",cajaTexto2);
         cajaTexto2.setBounds(165,130,170,30);
         panel2.add(cajaTexto2);
 
@@ -198,7 +205,72 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         };
         boton3.addActionListener(b);
 
+        /*
+         * Panel 3 
+         */
+        JTextField cajaTexto3 = new JTextField();
+        cajaTexto3.setText("Buscar Dulce");
+        cajaTexto3.setBounds(165,130,170,30);
+        panel3.add(cajaTexto3);
+
+        JButton boton4 = new JButton(/* "Aceptar" */);//creación del boton
+        boton4.setText("Actualizar");//Se le proporciona un texto, sino como se muestra al crearlo
+        boton4.setBounds(150,200,100,40);//Ubicacion del boton
+        panel3.add(boton4);//Implementacion del boton
+        boton4.setBackground(Color.magenta);
+
+        ActionListener c = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                String temporal_name = cajaTexto3.getText();
+                Dulce n = new Dulce(temporal_name);
+                arrayDulces.add(n);
+                for (Dulce Dulce: arrayDulces) {
+                    System.out.println("Nombre: "+ Dulce.getNombre());;
+                }}
+        };
+        boton4.addActionListener(c);
+
+
+        //////////////////////////////////////////////
+
+        JButton boton5 = new JButton(/* "Aceptar" */);//creación del boton
+        boton5.setText("Volver");//Se le proporciona un texto, sino como se muestra al crearlo
+        boton5.setBounds(250,200,100,40);//Ubicacion del boton
+        panel3.add(boton5);//Implementacion del boton
+        boton5.setBackground(Color.magenta);
+
+        ActionListener d = new ActionListener() {
+            public void actionPerformed(ActionEvent ae){
+                panel3.setVisible(false);
+                panel1.setVisible(true);
+            }
+        };
+        boton5.addActionListener(d);
+
     };
+        ///////// Remover dulces /////////
+        public void remove_mascota(){
+            String tempName;
+            JLabel labelRemove = new JLabel("Ingrese el nombre del dulce que desea eliminar");
+            JTextField cTRemove = new JTextField("");
+            tempName = cTRemove.getText();
+            JButton botonRemove = new JButton("Remover");
+            ActionListener aRemove = new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+    
+                    for (Dulce dulce: arrayDulces){
+                        String nombreD = dulce.nombre;
+                            if(tempName.equals(nombreD)){
+                                arrayDulces.remove(dulce);
+                                return;}
+                        }
+                    }
+                };
+            botonRemove.addActionListener(aRemove);
+            panel4.add(labelRemove);
+            panel4.add(cTRemove);
+            panel4.add(botonRemove);
+        }
     
     private void seleccionMenuOpciones(int opcion){
         switch(opcion){
@@ -212,11 +284,11 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                 panel1.setVisible(false);
                 panel3.setVisible(true);
                 this.getContentPane().add(panel3);
-
-                System.out.println("FINO OPCION 2");
                 break;
             case 3:
-                System.out.println("FINO OPCION 3");
+                panel1.setVisible(false);
+                panel3.setVisible(true);
+                this.getContentPane().add(panel4);
                 break;
             case 4:
                 System.out.println("FINO OPCION 4");
