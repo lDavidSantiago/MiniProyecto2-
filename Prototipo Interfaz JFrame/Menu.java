@@ -37,6 +37,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         colocarPaneles();
         colocarEtiquetas(); 
         botonesCajasTexto();
+        removeDulces();
     }
 
     private void colocarPaneles(){
@@ -150,7 +151,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
         JButton boton1 = new JButton(/* "Aceptar" */);//creación del boton
         boton1.setText("Aceptar");//Se le proporciona un texto, sino como se muestra al crearlo
-        boton1.setBounds(200,290,100,40);//Ubicacion del boton
+        boton1.setBounds(200,290,100,40);//Ubicacion del boton     
         panel1.add(boton1);//Implementacion del boton
         boton1.setBackground(Color.magenta);
 
@@ -249,28 +250,51 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
     };
         ///////// Remover dulces /////////
-        public void remove_mascota(){
-            String tempName;
-            JLabel labelRemove = new JLabel("Ingrese el nombre del dulce que desea eliminar");
-            JTextField cTRemove = new JTextField("");
-            tempName = cTRemove.getText();
-            JButton botonRemove = new JButton("Remover");
-            ActionListener aRemove = new ActionListener(){
-                public void actionPerformed(ActionEvent e){
-    
-                    for (Dulce dulce: arrayDulces){
-                        String nombreD = dulce.nombre;
-                            if(tempName.equals(nombreD)){
-                                arrayDulces.remove(dulce);
-                                return;}
-                        }
+    private void removeDulces(){
+        String tempName;
+
+        JLabel labelRemove = new JLabel(" Ingrese el nombre del dulce que desea eliminar ");
+        labelRemove.setBounds(125,50,280,50);
+
+        JTextField cTRemove = new JTextField("");
+        cTRemove.setBounds(168,100,170,30);
+        tempName = cTRemove.getText();
+
+        JButton botonRemove = new JButton("Remover");
+        botonRemove.setBounds(150,150,100,40);
+
+        JButton boton3 = new JButton(/* "Aceptar" */);//creación del boton
+        boton3.setText("Volver");//Se le proporciona un texto, sino como se muestra al crearlo
+        boton3.setBounds(250,150,100,40);//Ubicacion del boton
+        
+        ActionListener aRemove = new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+
+                for (Dulce dulce: arrayDulces){
+                    String nombreD = dulce.nombre;
+                        if(tempName.equals(nombreD)){
+                            arrayDulces.remove(dulce);
+                            return;}
                     }
-                };
-            botonRemove.addActionListener(aRemove);
-            panel4.add(labelRemove);
-            panel4.add(cTRemove);
-            panel4.add(botonRemove);
-        }
+                }
+            };
+        
+
+    
+            ActionListener b = new ActionListener() {
+                public void actionPerformed(ActionEvent ae){
+                    panel2.setVisible(false);
+                    panel1.setVisible(true);
+                }
+            };
+            boton3.addActionListener(b);
+        botonRemove.addActionListener(aRemove);
+
+        panel4.add(boton3);//Implementacion del boton
+        panel4.add(labelRemove);
+        panel4.add(cTRemove);
+        panel4.add(botonRemove);
+    }
     
     private void seleccionMenuOpciones(int opcion){
         switch(opcion){
