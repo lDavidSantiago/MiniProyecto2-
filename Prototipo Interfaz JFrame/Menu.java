@@ -133,7 +133,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         TextPrompt holder = new TextPrompt("Ingrese una opcion (numero)",cajaTexto1);
         cajaTexto1.setBounds(165,210,170,30);
         panel1.add(cajaTexto1);
-        // ----ACTION LISTENER DEL BOTON
+        // ----ACTION LISTENER DEL BOTO
         
 
         //////////////
