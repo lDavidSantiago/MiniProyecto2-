@@ -1,6 +1,6 @@
 public class Dulce {
     String nombre;
-    Dulce(String _nombre){
+    Dulce(String nombre){
         this.nombre = nombre;
     }
 }
