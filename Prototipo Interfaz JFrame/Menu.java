@@ -17,6 +17,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
     public JPanel panel1 = new JPanel();//Creacion del panel
     public JPanel panel2 = new JPanel();
     public JPanel panel3 = new JPanel();
+    public JPanel panel4 = new JPanel();
     ArrayList<Dulce> arrayDulces = new ArrayList<>();
     
 
@@ -55,6 +56,12 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel3.setVisible(false);
         panel3.setLayout(null);
         panel3.setBackground(Color.PINK);
+        ////////////////////////////////////////////////////////////////////////
+        //PANEL4
+        ////////////////////////////////////////////////////////////////////////
+        panel4.setVisible(false);
+        panel4.setLayout(null);
+        panel4.setBackground(Color.PINK);
 
     }
 
@@ -260,7 +267,9 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                     }
                 };
             botonRemove.addActionListener(aRemove);
-    
+            panel4.add(labelRemove);
+            panel4.add(cTRemove);
+            panel4.add(botonRemove);
         }
     
     private void seleccionMenuOpciones(int opcion){
@@ -275,11 +284,11 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                 panel1.setVisible(false);
                 panel3.setVisible(true);
                 this.getContentPane().add(panel3);
-
-                System.out.println("FINO OPCION 2");
                 break;
             case 3:
-                System.out.println("FINO OPCION 3");
+                panel1.setVisible(false);
+                panel3.setVisible(true);
+                this.getContentPane().add(panel4);
                 break;
             case 4:
                 System.out.println("FINO OPCION 4");
