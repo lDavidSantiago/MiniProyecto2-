@@ -292,7 +292,6 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                         }
                     index++;
                     }
-                    
                 }
             };
         botonRemove.addActionListener(aRemove);
@@ -303,31 +302,32 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel4.add(botonRemove);
     }
         ///////// Mostrar dulces /////////
-    private void mostrarDulces(){
+    private void mostrarDulces(){  //Mejorar diseño 
         JLabel tittle = new JLabel("Lista de Dulces: ");
         tittle.setBounds(10,10,200,50);
 
-        
-
-        JButton button1 = new JButton("Aceptar");
+        JButton button1 = new JButton("Actualizar");
         button1.setBounds(0, 400, 100, 100);
-        
-
         ActionListener a = new ActionListener() {
             public void actionPerformed(ActionEvent e){
+                panel6.removeAll();
                 int index = 1;
                 int cont = 20;
 
                 for(Dulce dulce : arrayDulces) {
-                    //panel6.add(prueba);
                     JLabel prueba = new JLabel(); 
                     System.out.println(arrayDulces.get(index-1).getNombre());
                     prueba.setText(index + ": " + dulce.getNombre());
                     panel6.add(prueba);
                     prueba.setBounds(10,cont , 100, 100);
                     index++;
-                    cont+=10;
+                    cont+=10;   
                 }
+                panel6.revalidate(); // Volver a calcular el diseño del panel
+                panel6.repaint(); // Repintar el panel en pantalla    
+                panel6.add(tittle);
+                panel6.add(button1);
+                botonVolver(100, 400, 100, 100,panel6);
             }
         };
         botonVolver(100, 400, 100, 100,panel6);
@@ -335,6 +335,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel6.add(tittle);
         panel6.add(button1);
 
+        
     }
     public void botonVolver(int x,int y,int width,int height,JPanel panel) {
         JButton boton = new JButton(/* "Aceptar" */);//creación del boton
@@ -375,9 +376,11 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                 System.out.println("FINO OPCION 4");
                 break;
             case 5:
+
                 panel1.setVisible(false);
                 panel6.setVisible(true);
                 this.getContentPane().add(panel6);
+                
                 break;
             default:
                 JOptionPane.showMessageDialog(null,"error, ingrese una opcion valida ");
