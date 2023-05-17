@@ -85,6 +85,9 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         JLabel etiqueta6 = new JLabel("5. Listar todos los dulces");
         etiqueta6.setBounds(50, 170, 150, 30);
         panel1.add(etiqueta6);
+        JLabel etiquetaOpcion = new JLabel("Ingrese una opción (numero)");
+        panel1.add(etiquetaOpcion);
+        etiquetaOpcion.setBounds(168,210,170,30);
 
         ////////////////////////////////////////////////////////////////////////
         //PANEL2
@@ -113,8 +116,8 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         //PANEL1
         ////////////////////////////////////////////////////////////////////////
         JTextField cajaTexto1 = new JTextField();
-        cajaTexto1.setText("Ingrese una opción (numero)");
-        cajaTexto1.setBounds(165,210,170,30);
+        cajaTexto1.setText("");
+        cajaTexto1.setBounds(165,250,170,30);
         panel1.add(cajaTexto1);
         // ----ACTION LISTENER DEL BOTON
         
@@ -123,7 +126,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
         JButton boton1 = new JButton(/* "Aceptar" */);//creación del boton
         boton1.setText("Aceptar");//Se le proporciona un texto, sino como se muestra al crearlo
-        boton1.setBounds(200,250,100,40);//Ubicacion del boton
+        boton1.setBounds(200,290,100,40);//Ubicacion del boton
         panel1.add(boton1);//Implementacion del boton
         boton1.setBackground(Color.magenta);
 
