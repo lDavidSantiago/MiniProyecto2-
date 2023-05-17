@@ -263,14 +263,12 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
     };
         ///////// Remover dulces /////////
     private void removeDulces(){
-        String tempName;
-
         JLabel labelRemove = new JLabel(" Ingrese el nombre del dulce que desea eliminar ");
         labelRemove.setBounds(125,50,280,50);
 
         JTextField cTRemove = new JTextField("");
         cTRemove.setBounds(168,100,170,30);
-        tempName = cTRemove.getText();
+
 
         JButton botonRemove = new JButton("Remover");
         botonRemove.setBounds(150,150,100,40);
@@ -281,13 +279,20 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         
         ActionListener aRemove = new ActionListener(){
             public void actionPerformed(ActionEvent e){
-
+                int index = 0;
+                String tempName = cTRemove.getText();
                 for (Dulce dulce: arrayDulces){
-                    String nombreD = dulce.nombre;
+                    String nombreD = arrayDulces.get(index).getNombre();
+
+                    
                         if(tempName.equals(nombreD)){
                             arrayDulces.remove(dulce);
-                            return;}
+                            System.out.println(arrayDulces.get(index).getNombre());
+                            return;
+                        }
+                    index++;
                     }
+                    
                 }
             };
         botonRemove.addActionListener(aRemove);
