@@ -143,7 +143,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         cajaTexto1.setText("Ingrese una opción (numero)");
         cajaTexto1.setBounds(165,210,170,30);
         panel1.add(cajaTexto1);
-        // ----ACTION LISTENER DEL BOTON
+        // ----ACTION LISTENER DEL BOTO
         
 
         //////////////
