@@ -16,6 +16,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
     int opcionnumeritos;
     public JPanel panel1 = new JPanel();//Creacion del panel
     public JPanel panel2 = new JPanel();
+    public JPanel panel3 = new JPanel();
     ArrayList<Dulce> arrayDulces = new ArrayList<>();
     
 
@@ -50,6 +51,10 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel2.setVisible(false);
         panel2.setLayout(null);
         panel2.setBackground(Color.PINK);
+        //////
+        panel3.setVisible(false);
+        panel3.setLayout(null);
+        panel3.setBackground(Color.PINK);
 
     }
 
@@ -102,7 +107,19 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         JLabel etiqueta8 = new JLabel("AGREGA NUEVOS DULCES");
         etiqueta8.setBounds(50, 90, 150, 30);
         panel2.add(etiqueta8);
+        //////////////////
+        JLabel etiqueta9 = new JLabel("INGRESA NUEVOS DULCES");//ETIQUETA
+        etiqueta9.setFont(new Font ("arial",Font.BOLD,20));//Tipo, Fuente(negrita), Tamaño
+        etiqueta9.setOpaque(true);//Permite ver el color del fondo de la etiqueta
+        etiqueta9.setBackground(Color.magenta);//Se establece el color de la etiqueta
+        etiqueta9.setBounds(50, 50, 400, 30);//Posicion y medidas de la etiqueta
+        etiqueta9.setHorizontalAlignment(SwingConstants.CENTER);
+        //etiqueta1.setForeground(Color.MAGENTa); --- de esta forma se logra cambiar el color de letra
+        panel3.add(etiqueta9);//Se agrega la etiqueta
 
+        JLabel etiqueta10 = new JLabel("AGREGA NUEVOS DULCES");
+        etiqueta10.setBounds(50, 90, 150, 30);
+        panel3.add(etiqueta10);
         
 
 
@@ -135,9 +152,9 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         };
         boton1.addActionListener(al);
 
-        ////////////////////////////////////////////////////////////////////////
-        //PANEL2
-        ////////////////////////////////////////////////////////////////////////
+        ///////////////////////
+        ////////PANEL2/////////
+        ///////////////////////
 
         JTextField cajaTexto2 = new JTextField();
         cajaTexto2.setText("Nombre del dulce");
@@ -146,26 +163,27 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
         JButton boton2 = new JButton(/* "Aceptar" */);//creación del boton
         boton2.setText("Agregar");//Se le proporciona un texto, sino como se muestra al crearlo
-        boton2.setBounds(200,170,100,40);//Ubicacion del boton
+        boton2.setBounds(150,200,100,40);//Ubicacion del boton
         panel2.add(boton2);//Implementacion del boton
         boton2.setBackground(Color.magenta);
 
-        /*ActionListener a = new ActionListener() {
+        ActionListener a = new ActionListener() {
             public void actionPerformed(ActionEvent ae){
-                String aux=cajaTexto2.getText();
-                arrayDulces.add(aux);
-
-                -----------------SE DEBE AGREGAR AL ARRAY DE DULCES O TRABAJAR CON LISTAS, COMO QUIERAN
-            }
+                String temporal_name = cajaTexto2.getText();
+                Dulce n = new Dulce(temporal_name);
+                arrayDulces.add(n);
+                for (Dulce Dulce: arrayDulces) {
+                    System.out.println("Nombre: "+ Dulce.getNombre());;
+                }}
         };
-        boton2.addActionListener(a);*/
+        boton2.addActionListener(a);
 
 
         //////////////////////////////////////////////
 
         JButton boton3 = new JButton(/* "Aceptar" */);//creación del boton
-        boton3.setText("Volver al menu de opciones");//Se le proporciona un texto, sino como se muestra al crearlo
-        boton3.setBounds(100,250,300,40);//Ubicacion del boton
+        boton3.setText("Volver");//Se le proporciona un texto, sino como se muestra al crearlo
+        boton3.setBounds(250,200,100,40);//Ubicacion del boton
         panel2.add(boton3);//Implementacion del boton
         boton3.setBackground(Color.magenta);
 
@@ -179,7 +197,6 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
     };
     
-
     private void seleccionMenuOpciones(int opcion){
         switch(opcion){
             case 1:
@@ -189,6 +206,10 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
                 break;
             case 2:
+                panel1.setVisible(false);
+                panel3.setVisible(true);
+                this.getContentPane().add(panel3);
+
                 System.out.println("FINO OPCION 2");
                 break;
             case 3:
