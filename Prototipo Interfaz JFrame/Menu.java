@@ -287,7 +287,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
                 break;
             case 3:
                 panel1.setVisible(false);
-                panel3.setVisible(true);
+                panel4.setVisible(true);
                 this.getContentPane().add(panel4);
                 break;
             case 4:
