@@ -1,8 +1,11 @@
 
 public class Dulce {
     String nombre;
-    Dulce(String _nombre){
-        nombre = _nombre;
+    String tipoDulce;
+    Dulce(String nombre,String tipoDulce){
+        this.nombre = nombre;
+        this.tipoDulce = tipoDulce;
+
     }
 
     public String getNombre() {
@@ -12,4 +15,13 @@ public class Dulce {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public String getTipoDulce() {
+        return tipoDulce;
+    }
+
+    public void setTipoDulce(String tipoDulce) {
+        this.tipoDulce = tipoDulce;
+    }
+    
 }
