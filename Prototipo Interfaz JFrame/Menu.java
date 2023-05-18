@@ -242,13 +242,13 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         panel3.add(cajaTexto3);
 
         JTextField cajaTextoActualizarNombre = new JTextField();
-        TextPrompt holder5 = new TextPrompt("Nuevo nombre ",cajaTexto3);
+        TextPrompt holder5 = new TextPrompt("Nuevo nombre ",cajaTextoActualizarNombre);
 
         cajaTextoActualizarNombre.setBounds(90,250,140,30);
         panel3.add(cajaTextoActualizarNombre);
 
         JTextField cajaTextoActualizarTipo = new JTextField();
-        TextPrompt holder6 = new TextPrompt("Nuevo Tipo",cajaTexto3);
+        TextPrompt holder6 = new TextPrompt("Nuevo Tipo",cajaTextoActualizarTipo);
 
         cajaTextoActualizarTipo.setBounds(250,250,140,30);
         panel3.add(cajaTextoActualizarTipo);
