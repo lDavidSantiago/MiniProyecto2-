@@ -187,9 +187,14 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         ///////////////////////
 
         JTextField cajaTexto2 = new JTextField();
-        TextPrompt holder2 = new TextPrompt("Ingrese una opcion (numero)",cajaTexto2);
-        cajaTexto2.setBounds(165,130,170,30);
+        TextPrompt holder2 = new TextPrompt("Ingrese el nombre del dulce",cajaTexto2);
+        cajaTexto2.setBounds(80,130,170,30);
+        JTextField cajaTextoTipo = new JTextField();
+        TextPrompt holder3 = new TextPrompt("Ingrese el tipo del dulce",cajaTextoTipo);
+        cajaTextoTipo.setBounds(250,130,170,30);
+
         panel2.add(cajaTexto2);
+        panel2.add(cajaTextoTipo);
 
         JButton boton2 = new JButton(/* "Aceptar" */);//creación del boton
         boton2.setText("Agregar");//Se le proporciona un texto, sino como se muestra al crearlo
@@ -199,12 +204,13 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
 
         ActionListener a = new ActionListener() {
             public void actionPerformed(ActionEvent ae){
-                String temporal_name = cajaTexto2.getText();////////////////////////////////////////
-                String tempTipo = cajaTexto2.getText(); ///////////Editar esta parte ///////////////
+                String temporal_name = cajaTexto2.getText();
+                String tempTipo = cajaTextoTipo.getText(); 
                 Dulce n = new Dulce(temporal_name,tempTipo);
                 arrayDulces.add(n);
                 for (Dulce dulce: arrayDulces) {
-                    System.out.println("Nombre: "+ dulce.getNombre());;
+                    System.out.println("Nombre: "+ dulce.getNombre());
+                    System.out.println("Nombre: "+ dulce.getTipoDulce());
                 }
             }
         };
@@ -232,8 +238,13 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
          */
         JTextField cajaTexto3 = new JTextField();
         cajaTexto3.setText("Buscar Dulce");
-        cajaTexto3.setBounds(165,130,170,30);
+        cajaTexto3.setBounds(80,130,170,30);
         panel3.add(cajaTexto3);
+
+        JTextField cajaTextoBuscarTipo = new JTextField();
+        cajaTextoBuscarTipo.setText("Buscar Dulce");
+        cajaTextoBuscarTipo.setBounds(250,130,170,30);
+        panel3.add(cajaTextoBuscarTipo);
 
         JButton boton4 = new JButton(/* "Aceptar" */);//creación del boton
         boton4.setText("Actualizar");//Se le proporciona un texto, sino como se muestra al crearlo
@@ -244,12 +255,14 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         ActionListener c = new ActionListener() {
             public void actionPerformed(ActionEvent ae){
                 String temporal_name = cajaTexto3.getText();
-                String tempTipo = cajaTexto3.getText();///////////Editar esta parte ///////////////
+                String tempTipo = cajaTextoBuscarTipo.getText();///////////Editar esta parte ///////////////
                 Dulce n = new Dulce(temporal_name,tempTipo);///////////Editar esta parte ///////////////
                 arrayDulces.add(n);
                 for (Dulce dulce: arrayDulces) {
-                    System.out.println("Nombre: "+ dulce.getNombre());;
-                }}
+                    System.out.println("Nombre: "+ dulce.getNombre());
+                    System.out.println("Nombre: "+ dulce.getTipoDulce());
+                }
+            }
         };
         boton4.addActionListener(c);
 
@@ -362,26 +375,34 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         JLabel tittle = new JLabel("Lista de Dulces: ");
         tittle.setBounds(10,10,200,50);
 
+        JLabel nameType = new JLabel("Nombre                 Tipo ");  
+        nameType.setBounds(10,28, 250, 100);  
+
         JButton button1 = new JButton("Actualizar");
         button1.setBounds(0, 400, 100, 100);
         ActionListener a = new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 panel6.removeAll();
                 int index = 1;
-                int cont = 20;
+                int cont = 40;
 
                 for(Dulce dulce : arrayDulces) {
-                    JLabel prueba = new JLabel(); 
+                    JLabel label = new JLabel(); 
+                    JLabel label2 = new JLabel(); 
                     System.out.println(arrayDulces.get(index-1).getNombre());
-                    prueba.setText(index + ": " + dulce.getNombre());
-                    panel6.add(prueba);
-                    prueba.setBounds(10,cont , 100, 100);
+                    label.setText(index + ": " + dulce.getNombre());
+                    label2.setText(dulce.getTipoDulce());
+                    label.setBounds(10,cont , 100, 100);
+                    label2.setBounds(111,cont , 150, 100);
+                    panel6.add(label);
+                    panel6.add(label2);
                     index++;
                     cont+=10;   
                 }
                 panel6.revalidate(); // Volver a calcular el diseño del panel
                 panel6.repaint(); // Repintar el panel en pantalla    
                 panel6.add(tittle);
+                panel6.add(nameType);
                 panel6.add(button1);
                 botonVolver(100, 400, 100, 100,panel6);
             }
@@ -389,6 +410,7 @@ public class Menu extends JFrame{//Se importa JFrame para usar interfaces y que 
         botonVolver(100, 400, 100, 100,panel6);
         button1.addActionListener(a);
         panel6.add(tittle);
+        panel6.add(nameType);
         panel6.add(button1);
 
         
